@@ -1,0 +1,23 @@
+topics:
+  terrain_map: /terrain_map
+  body_plan: /body_plan
+  discrete_body_plan: /discrete_body_plan
+
+global_body_planner:
+  update_rate: 5
+  num_calls: 1
+  replan_time_limit: 1.0
+  algorithm: rrt-connect
+
+terrain_map_publisher:
+  update_rate: 10
+  map_data_source: csv
+  terrain_type: slope
+
+grid_map_visualization:
+  grid_map_topic: /terrain_map
+  grid_map_visualizations:
+    - name: elevation_points
+      type: point_cloud
+      params:
+        layer: elevation

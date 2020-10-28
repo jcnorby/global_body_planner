@@ -1,0 +1,20 @@
+<launch>
+        <!-- Load params from the yaml file -->
+        <rosparam command="load" file="$(find global_body_planner)/config/params.yaml"/>
+
+        <!-- Launch the terrain map publisher -->
+        <node pkg="global_body_planner" type="terrain_map_publisher_node" name="terrain_map_publisher" output="screen"/>
+                
+        <!-- Launch the global body planner node -->
+        <node name="global_body_planner" pkg="global_body_planner" type="global_body_planner_node" output="screen"/>
+
+		<!-- Launch the grid map visualizer -->
+		<node pkg="grid_map_visualization" type="grid_map_visualization" name="grid_map_visualization" output="screen"/>
+
+        <!-- Launch the node to transfer plan message data to formats conducive to rviz -->
+        <node name="rviz_interface" pkg="global_body_planner" type="rviz_interface_node" output="screen"/>
+
+        <!-- Launch rviz -->
+        <node name="rviz" pkg="rviz" type="rviz" args="-d $(find global_body_planner)/rviz/example.rviz"/>
+
+</launch>
