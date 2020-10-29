@@ -1,22 +1,18 @@
 sudo: required
-
 notifications:
   email:
     recipients:
     - jnorby@andrew.cmu.edu
     on_success: always
     on_failure: always
-
 branches:
   only:
   - main
-
 addons:
   apt:
     packages:
     - doxygen
 language: generic
-
 matrix:
   include:
   - os: linux
@@ -24,13 +20,11 @@ matrix:
     name: 18.04 Melodic
     dist: bionic
     env: ROS_DISTRO=melodic
-
 env:
   global:
   - CI_SOURCE_PATH=$(pwd)
   - ROS_PARALLEL_JOBS='-j8 -l6'
-  - secure: uV0Csk4OKk0bpv6BYJyi3wjlvO0KPgmeATQaL6XWlTzzkh58M24R7jRBVobDfXkrrofsC5rIAKAx+BJcNB1BeLEZ4FWceG5/uFF9FU81ugLZT1ZdkDvnL6pFHhGHYVg8ZAF8XQxHCxaCK99p8XkKqE+/DJSn1x//l7CtKJPFvqI+lvXR6xn4LubyTp0yrGodX2wi6zyk2Mvv0hLERvupWYuo9JC7a/M1mt53AL7VcmFiLpwV59XGOEaj6BZEAA53DhaVdvDp+boB5H4tvH7ENKEolqRdQwnlnDLqsi9oNuEz1WMou8/AX+QBl8i2yRgemHqdnMEUef/YzoUSCemquRCzLlSqk9WvOG77KxfNMcKkYCAKFIDJFaUsGutDWBb2tUELixIOiti4kUFK9z+SMJEnc/NEc27LIGlxpexDG55HFgjVBO3RyFHPZRrjh9AwH0bLKyi717QaBWfyCedk125Qx4CTfizAf596puYbal+7qhCgOSEY3rNFHEjQ7Y9jCAnjoVIOvI7rmxNJUWnZN4b/9j3CNEDBBzvqw60AY06+UAsVwXQYY0gef/E8tKugAtoe536sFM/lBX1A9B0un/IRcHTEgbalSQgYR0llLnPNkLwFXoxwWbM4FhkDWM8bEk+G/IM8VIiLsAivCe0Fzr/V7pcPgg3BEGFOKSq5ABY=
-
+  - secure: t6cKY50DEFydhDjNkFyMZfUYDBhYw0Br6gjocHXf7R28GrPgbDVSfBcZLzJchcFSOuUVFJD4R/nd6V884VcuYpagDiE/eYZJSbAL4wOIOFLEp1k1l4lRzj6JLDMnR2NPfnaWhgzYyo9JtQgEZqCxGCyDkwNzUCVkuMP7ndHexMOzCi2D+xSM3EhLIbu6HgX/uxKzP3Fv1M10ABdYyoMF/MVUhOBLTjMrjwND/oRfvWKdiMzlGbbgaLO0ogh9YhC/3GCdlew0Yz9MN31ELzFAM5QQI9u6DDFlO6vBzSP5117uud0d+3/eZax5Rv7rqHZOR6oOMm98eep8LIk7gCyLXzCl+fUNTHh1AjW6lZvHWbW//JAxMK2ZIeFA/hoZ4iL3pz3GBUa0N6EIavmw2PQ7kExfMH9AzSMlXUsT/H1gU1DzyuGxvgMs7Ei0H7HJnEt/GexX8Elk9EkA4ndKBAvHTL6Vd9bqB47vZSq5EVPdKslAQfw4Qk+ebMjr5kYm5sUm1HmydOWWin1AYI7gnULkvFEQqpg5AueAKXqwIL4IuT0eXLNwQxPu0jqrA/JznQ5tGuayUOzWQut9QQ8kqk9t55GRBipRDAF1Fm6Ej0miavfcXYjq8Fs6fJbC/S1jdMJXnRkhAl0SMLwnEQOuYaDoSRFLJdHC+NZ0HSwpki7Kfh8=
 before_install:
 - sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main">
   /etc/apt/sources.list.d/ros-latest.list'
@@ -39,34 +33,29 @@ before_install:
 - sudo apt install doxygen
 - sudo apt install -y python-rosdep python-rosinstall python-rosinstall-generator
   python-wstool build-essential
-- sudo apt install -y ros-$ROS_DISTRO-ros-desktop
+- sudo apt install -y ros-$ROS_DISTRO-ros-base
 - source /opt/ros/$ROS_DISTRO/setup.bash
 - sudo rosdep init
 - rosdep update
-
 install:
 - mkdir -p ~/catkin_ws/src
 - ln -s $CI_SOURCE_PATH ~/catkin_ws/src/
 - cd $TRAVIS_BUILD_DIR
 - chmod +x setup_deps.sh
-- ./setup_deps.sh
+- "./setup_deps.sh"
 - source /opt/ros/$ROS_DISTRO/setup.bash
 - cd ~/catkin_ws
 - catkin_make
 - source devel/setup.bash
-
 before_script:
 - roscore &
 - sleep 5
-
 script:
 - cd ~/catkin_ws
 - catkin_make run_tests && catkin_test_results
-
 before_deploy:
 - cd $TRAVIS_BUILD_DIR
 - doxygen Doxyfile
-
 deploy:
   provider: pages
   skip_cleanup: true
