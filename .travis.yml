@@ -53,14 +53,3 @@ before_script:
 script:
 - cd ~/catkin_ws
 - catkin_make run_tests && catkin_test_results
-# before_deploy:
-# - cd $TRAVIS_BUILD_DIR
-# - doxygen Doxyfile
-# deploy:
-#   provider: pages
-#   skip_cleanup: true
-#   github_token: "$GITHUB_TOKEN"
-#   keep_history: true
-#   local_dir: docs/
-#   on:
-#     branch: main
