@@ -36,5 +36,5 @@ cd ~/catkin_ws/src/global_body_planner
 doxygen Doxyfile
 firefox docs/index.html
 ```
-Contact Joe Norby at jnorby@andrew.cmu.edu with questions, or better yet submit Issues/Pull Requests if you find something that can be improved!
+Contact Joe Norby at jnorby@andrew.cmu.edu with questions, or better yet submit Issues/Pull Requests if you find something that can be improved! This repository is offered for people to see how the algorithm works and maybe implement it in their own projects. We're still working on improving it in our own lab and may post updates from time to time, but the purpose of making it open source is to let the community help make it better.
 
