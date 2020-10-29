@@ -20,5 +20,5 @@ var searchData=
   ['globalbodyplanner',['GlobalBodyPlanner',['../classGlobalBodyPlanner.html',1,'GlobalBodyPlanner'],['../classGlobalBodyPlanner.html#ae1cc3ec1e77b13cdf679267c4a8e55b4',1,'GlobalBodyPlanner::GlobalBodyPlanner()']]],
   ['goal_5ffound',['goal_found',['../classRRTClass.html#abd63c1f08cf738a4966010968e615e0a',1,'RRTClass']]],
   ['graphclass',['GraphClass',['../classGraphClass.html',1,'GraphClass'],['../classGraphClass.html#a39d78244b77de2351494de80b28e7dbe',1,'GraphClass::GraphClass()']]],
-  ['global_5fbody_5fplanner',['global_body_planner',['../index.html',1,'']]]
+  ['global_20body_20planner',['Global Body Planner',['../index.html',1,'']]]
 ];

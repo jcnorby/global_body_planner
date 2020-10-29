@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['global_5fbody_5fplanner',['global_body_planner',['../index.html',1,'']]]
+  ['global_20body_20planner',['Global Body Planner',['../index.html',1,'']]]
 ];
