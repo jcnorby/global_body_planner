@@ -34,5 +34,5 @@ cd ~/catkin_ws/src/global_body_planner
 doxygen Doxyfile
 firefox docs/index.html
 ```
-
+Contact Joe Norby at jnorby@andrew.cmu.edu with questions, or better yet submit Issues/Pull Requests if you find something that can be improved!
 
