@@ -6,13 +6,13 @@ topics:
 global_body_planner:
   update_rate: 1
   num_calls: 1            # Number of times to call the planner
-  replan_time_limit: 2.0  # Minimum amount of time to run the planner (will replan to find better solutions until this duration is up)
+  replan_time_limit: 1.0  # Minimum amount of time to run the planner (will replan to find better solutions until this duration is up)
   algorithm: rrt-connect  # rrt-connect or rrt-star-connect
 
 terrain_map_publisher:
   update_rate: 10
   map_data_source: csv
-  terrain_type: rough_terrain     # slope or rough terrain
+  terrain_type: slope     # slope or rough terrain
 
 grid_map_visualization:
   grid_map_topic: /terrain_map
