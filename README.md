@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/jcnorby/global_body_planner.png?branch=main)](https://travis-ci.org/jcnorby/global_body_planner)
 
 # Global Body Planner
-ROS package for the high level body planner described in "<a href="http://www.andrew.cmu.edu/user/amj1/papers/IROS2020_Fast_Global_Motion_Planning.pdf">Fast Global Motion Planning for Dynamic Legged Robots</a>"
+ROS package for the high level body planner described in "<a href="https://ras.papercept.net/proceedings/IROS20/1956.pdf">Fast Global Motion Planning for Dynamic Legged Robots</a>"
 
 ### About
 This ROS package provides dynamic motion primitives to guide a legged robot from a start state to a goal state while navigating a provided height map. The algorithm is intended sit at the top of an autonomous navigation stack, providing valuable information to guide lower-level footstep planners and/or whole-body controllers to good solutions. The primitives are trajectories that satisfy constraints on the kinematic and dynamic abilities of the desired robot, and can include both stance and flight phases.
